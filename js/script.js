@@ -74,13 +74,7 @@ $('.cross-closeBtnJs').click(function() {
 /*subscription popap end*/
 
 /*community slider-API begin */
-$('.community__images').slick({
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    arrows:true,
-    adaptiveHeight:true,
-    speed: 800,
-});
+
 
 const result = document.querySelector('#api-images');
 
@@ -96,8 +90,15 @@ fetch(`https://pixabay.com/api/?key=20076700-7c45ada5dc69c5a61091930f4&width=200
 .then((response) => response.json())
 .then((data) => {
     data.hits.forEach((photo) => {
-        const photoLayout = createImage (photo.previewURL, photo.id);
-        console.log(photoLayout);
+        const photoLayout = createImage(photo.previewURL, photo.id);
+        $('.community__images').append(photoLayout);
+    }); 
+    $('.community__images').slick({
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        arrows:true,
+        adaptiveHeight:true,
+        speed: 800,
     });
 });
 
