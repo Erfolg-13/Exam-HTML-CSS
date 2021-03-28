@@ -25,6 +25,7 @@ $('.design__image--section').slick({
     slidesToScroll: 1,
     speed: 800,
 });
+
 /*design slick-slider end*/
 
 /*subscription popap begin*/
@@ -53,7 +54,8 @@ subscriptionJs.appendChild(submitAnswerS);
 
 $('#form-subscription').on('submit', function(e) {
     e.preventDefault();
-    $('.message-answer').fadeIn("slow")
+    $('.message-answer').fadeIn("slow");
+    $("body").addClass("fixed-page");
     return false;
 });	
 
@@ -75,18 +77,15 @@ $('.cross-closeBtnJs').click(function() {
 
 /*community slider-API begin */
 
-
-const result = document.querySelector('#api-images');
-
 function createImage (link, id) {
     const linkImg = document.createElement('img');
-    linkImg.className = '.api-links';
+    linkImg.className = '.com-image';
     linkImg.src = link;
     linkImg.alt = id;
     return linkImg;
 }
 
-fetch(`https://pixabay.com/api/?key=20076700-7c45ada5dc69c5a61091930f4&width=200&max_height=150&category=travel&image_type==photo&orientation=horizontal&pretty=true`)
+fetch(`https://pixabay.com/api/?key=20076700-7c45ada5dc69c5a61091930f4&width=200&previewHeight=150&category=travel&orientation=horizontal&per_page&pretty=true`)
 .then((response) => response.json())
 .then((data) => {
     data.hits.forEach((photo) => {
@@ -95,10 +94,12 @@ fetch(`https://pixabay.com/api/?key=20076700-7c45ada5dc69c5a61091930f4&width=200
     }); 
     $('.community__images').slick({
         slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         arrows:true,
         adaptiveHeight:true,
         speed: 800,
+        autoplay: true,
+        autoplaySpeed:1000,
     });
 });
 

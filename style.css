@@ -46,6 +46,7 @@
     background: transparent;
     border: 1px solid transparent;
     transition: all 0.3s ease 0s;
+    focusout
 }
 
 .toggle-navigation span {
@@ -207,8 +208,6 @@
     overflow: hidden;
 }
 
-
-
 @media(min-width:200px) {
     .photoapp {
         background-position: top right;
@@ -309,6 +308,7 @@
     .article {
         letter-spacing: 1.8px;
         line-height: 24px;
+        padding-left: 5px;
     }
 
     .home-footer {
@@ -424,36 +424,35 @@
 /*photoapp end*/
 
 /*design begining*/
+
 .design {
-    position: relative;
     background-color: #fff;
-    width: 100%;
     height: auto;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 .design__image--section {
-    width: 50%;
-    min-height: 550px;
-    position: absolute;
-    top: 5%;
-    left: 10%;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
     border: 1px solid transparent;
 }
+
 .image-item-first {
-    width: 200px;
+    width: 55%;
     border: 1px solid transparent
 }
+
 .image-item {
-    width: 250px;
+    width: 80%;
+    height: auto;
 }
 
 .design__article {
-    position: absolute;
-    top: 5%;
-    right: 10%;
-    width: 30%;
-    text-align: left;  
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
     border: transparent;
 }
 
@@ -481,20 +480,20 @@
 
 .design__image--section .slick-arrow {
     position: absolute;
-    top: 60%;
-    width: 25px;
-    min-height: 25px;
+    top: 50%;
+    width: 15px;
+    min-height: 15px;
     border: 1px solid transparent;
 }
 
 .design__image--section .slick-next {
-    left: 107%;
+    right: 10px;
     font-size: 0;
     background: url(./logo.svg/arraw-next.svg) 0 0 / 100% no-repeat;
 }
 
 .design__image--section .slick-prev {
-    left: 100%;
+    left: 10px;
     font-size: 0;
     background: url(./logo.svg/arraw-prev.svg) 0 0 / 100% no-repeat;
 }
@@ -532,15 +531,58 @@
     }
 }
 @media(min-width:768px) {
+    .design {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 70vh;
+    } 
+    .design__image--section {
+        width: 40%;
+        min-height: 550px;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    } 
     .design__image {
         top: 0;
         left: 0;
+    }
+    .image-item {
+        width: 80%;
+    }
+    .image-item-first {
+        width: 200px;
+    }
+    .design__article {
+        position: absolute;
+        top: 5%;
+        right: 10%;
+        width: 30%;
+        text-align: left;  
+    }
+    .design__image--section .slick-arrow {
+        position: absolute;
+        top: 72%;
+        width: 25px;
+        min-height: 25px;
+        border: 1px solid transparent;
+    }
+    .design__image--section .slick-next {
+        left: 107%;
+    }
+    .design__image--section .slick-prev {
+        left: 91%;
     }
 }
 @media(min-width:992px) {
     .design {
         margin-top: 10%;
-        min-height: 60vh;
+        min-height: 100vh;
+    }
+
+    .image-item {
+        width: 50%;
     }
 }
 @media(min-width:1200px) {
@@ -584,6 +626,15 @@
     }
     
 }
+@media(min-width:576px) {
+    .design__image--section .slick-prev {
+        left: 10%;
+    }
+    .article {
+        font-size: 15px;
+    }
+}
+
 @media(min-width:1400px) {
     .design {
         margin-top: -5%;
@@ -696,13 +747,20 @@
     display: flex;  
 }
 
-.com-image {
-    width: 150px;
-    height: auto;
-}
-
-.api-links {
+/* .com-image {
     display: inline-block;
+    margin-right: 1%;
+    width: auto;
+    height: auto;
+    
+} */
+
+.community__images .slick-slide {
+    display: inline-block;
+    margin-right: 5px;
+    width: auto;
+    height: auto;
+    height: 200px;
 }
 
 @media(min-width:576px) {
@@ -741,21 +799,21 @@
 .message-answer {
     display: none;
     position: absolute;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    border-radius: 100px;
+    top: 36%;
+    left: 25%;
+    width: 52%;
+    height: 28%;
+    border-radius: 50px;
     background-color: rgba(0, 0, 0, 0.95);
     color: #fff;
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
 }
 
 .title-subscriptionJs {
     display: block;
-    margin: 20% auto 15%;
-    width: 45%;
+    margin: 15% auto 5%;
+    width: 70%;
     letter-spacing: 3px;
     font-weight: normal;   
 }
@@ -765,10 +823,11 @@
     min-width: 20%;
     height: auto;
     min-height: 10%;
+    padding: 2%;
     border-radius: 5px;
     background: gray;
     color: #fff;
-    font-size: 70%;
+    font-size: 65%;
     font-weight: bold;
     letter-spacing: 5px; 
     -webkit-box-shadow: -8px 5px 13px rgb(48, 46, 46);
@@ -791,8 +850,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
 }
 
@@ -896,10 +955,9 @@
 
 .download-title {
     padding-bottom: 5px;
-    font-size: 22px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 24px;
-    letter-spacing: 3px;
     color: #373737;
 }
 
@@ -947,6 +1005,10 @@
 @media(min-width:576px) {
     .download {
         min-height: 400px;
+    }
+    .download-title {
+        font-size: 22px;
+        letter-spacing: 3px;
     }
     .download__btns {
         width: 80%;
